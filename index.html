@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="정승한(Seunghan Jung)의 AI·보안 연구 및 개발 포트폴리오. ForinK RAG, 시계열 예측 연구, 모바일 프로젝트.">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:title" content="Seunghan Jung | AI × Security">
+  <meta property="og:description" content="From documents to answers. AI research, RAG engineering, and cybersecurity.">
+  <title>Seunghan Jung — AI × Security</title>
+  <style>
+    :root { color-scheme:dark; --bg:#0b1220; --surface:#111c2d; --surface2:#162438; --line:#26384c; --ink:#f0f6fb; --muted:#a1b0c2; --accent:#5ee3ce; --blue:#7faefc; --max:1120px }
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth; scroll-padding-top:85px }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:Inter,Pretendard,"Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.72; letter-spacing:-.02em }
+    body::before { content:""; position:absolute; z-index:-1; inset:0 0 auto; height:780px; background:radial-gradient(ellipse 52% 46% at 78% 17%,#163b51 0,transparent 100%),radial-gradient(ellipse 45% 40% at 20% 5%,#18274c 0,transparent 100%); pointer-events:none }
+    a { color:inherit; text-decoration:none }
+    button { font:inherit }
+    a:focus-visible,button:focus-visible { outline:2px solid var(--accent); outline-offset:4px }
+    .container { width:min(calc(100% - 48px),var(--max)); margin-inline:auto }
+    .skip { position:absolute; top:-100px; left:16px; z-index:20; background:var(--accent); color:#05131b; padding:10px 16px }
+    .skip:focus { top:12px }
+    .nav { position:sticky; top:0; z-index:10; background:#0b1220df; backdrop-filter:blur(18px); border-bottom:1px solid #ffffff10 }
+    .nav-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:22px }
+    .brand { display:flex; align-items:center; gap:11px; font-size:14px; font-weight:800; letter-spacing:.02em }
+    .brand-mark { display:grid; place-items:center; width:34px; height:34px; border:1px solid #5ee3ce70; border-radius:10px; color:var(--accent); font-size:13px }
+    .nav-links { display:flex; gap:27px; align-items:center; color:#c1cedd; font-size:13px; font-weight:600 }
+    .nav-links a:hover,.text-link:hover { color:var(--accent) }
+    .nav-links .nav-cv { border:1px solid #476071; border-radius:8px; padding:8px 12px; color:var(--ink) }
+    .menu { display:none; border:1px solid var(--line); border-radius:8px; padding:7px 10px; background:var(--surface); color:var(--ink) }
+    .hero { padding:104px 0 92px; display:grid; grid-template-columns:1.12fr .88fr; gap:70px; align-items:center }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:750; letter-spacing:.14em; text-transform:uppercase; color:var(--accent) }
+    .eyebrow::before { content:""; width:22px; height:1px; background:currentColor }
+    h1,h2,h3,p { margin-top:0 }
+    h1 { margin:25px 0 24px; font-size:clamp(44px,5.2vw,72px); line-height:1.15; letter-spacing:-.068em; font-weight:820 }
+    .gradient { color:var(--accent) }
+    .hero-desc { max-width:540px; color:#b5c3d2; font-size:16px; line-height:1.95; margin-bottom:29px }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px }
+    .btn { display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:44px; padding:10px 18px; border:1px solid #405267; border-radius:10px; font-size:13px; font-weight:750; transition:transform .2s,background .2s }
+    .btn:hover { transform:translateY(-2px); background:#1b2c40 }
+    .btn-primary { color:#06161c; background:var(--accent); border-color:var(--accent) }
+    .btn-primary:hover { background:#9df1e4 }
+    .hero-meta { display:flex; flex-wrap:wrap; gap:9px; margin-top:27px }
+    .pill { border:1px solid #334a60; border-radius:100px; padding:5px 12px; color:#b8c9d9; font-size:11px; font-weight:650 }
+    .hero-art { position:relative; min-height:395px; border:1px solid #2e4558; border-radius:22px; overflow:hidden; background:linear-gradient(145deg,#182c40,#0c1627 68%); box-shadow:0 25px 90px #00000045 }
+    .hero-art::before { content:""; position:absolute; inset:0; opacity:.24; background-image:linear-gradient(#6fb3d71d 1px,transparent 1px),linear-gradient(90deg,#6fb3d71d 1px,transparent 1px); background-size:32px 32px }
+    .art-head { position:absolute; left:26px; top:22px; display:flex; gap:7px }
+    .art-head span { width:7px; height:7px; border-radius:50%; background:#58758b }
+    .art-label { position:absolute; top:22px; right:25px; color:#90aabe; font:11px ui-monospace,SFMono-Regular,monospace }
+    .art-core { position:absolute; width:190px; height:190px; left:50%; top:49%; transform:translate(-50%,-50%); display:grid; place-items:center; border:1px solid #5ee3ce8a; border-radius:50%; background:radial-gradient(circle,#183f4a,#102334 68%); box-shadow:0 0 0 27px #5ee3ce0c,0 0 0 56px #5ee3ce09,0 0 80px #5ee3ce18 }
+    .art-core::before,.art-core::after { content:""; position:absolute; border-radius:50%; border:1px dashed #5ee3ce3d }
+    .art-core::before { inset:-28px }
+    .art-core::after { inset:-57px }
+    .art-core strong { font-size:64px; letter-spacing:-.09em; color:#b1f7e9 }
+    .orbit { position:absolute; border:1px solid #345e6c; border-radius:10px; background:#132c3a; padding:8px 12px; color:#aee7e0; font:11px ui-monospace,SFMono-Regular,monospace; box-shadow:0 8px 28px #0004 }
+    .orbit.one { top:102px; left:20px }.orbit.two { right:17px; top:133px }.orbit.three { bottom:55px; left:45px }.orbit.four { right:27px; bottom:57px }
+    .art-bottom { position:absolute; bottom:15px; left:24px; right:24px; display:flex; justify-content:space-between; color:#7394a8; font:10px ui-monospace,SFMono-Regular,monospace }
+    .section { padding:74px 0 }
+    .section + .section { border-top:1px solid #1c2c3e }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:25px; margin-bottom:31px }
+    .kicker { color:var(--accent); font-size:11px; letter-spacing:.16em; font-weight:800; text-transform:uppercase; margin-bottom:8px }
+    h2 { font-size:clamp(27px,3.2vw,40px); line-height:1.25; letter-spacing:-.045em; margin-bottom:0 }
+    .section-intro { color:var(--muted); font-size:13px; max-width:430px; margin-bottom:0 }
+    .feature { border:1px solid #385267; border-radius:20px; background:linear-gradient(150deg,#16293a,#111d2d 70%); padding:35px }
+    .feature-top { display:flex; justify-content:space-between; gap:22px; align-items:start; margin-bottom:30px }
+    .feature h3 { font-size:clamp(27px,3vw,38px); line-height:1.24; letter-spacing:-.05em; margin:9px 0 11px }
+    .feature .lead { color:#b7c6d5; max-width:710px; font-size:14px; margin-bottom:0 }
+    .award { display:inline-flex; flex-shrink:0; align-items:center; gap:7px; color:#f2dfae; background:#b98a301c; border:1px solid #b98a3059; border-radius:30px; font-size:11px; font-weight:750; padding:7px 11px }
+    .feature-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:23px }
+    .problem,.solution { padding:22px; border:1px solid #32485b; background:#0b1725a6; border-radius:14px }
+    .mini-title { font-size:11px; letter-spacing:.12em; font-weight:800; color:var(--accent); text-transform:uppercase; margin-bottom:10px }
+    .problem p,.solution p { color:#b7c6d5; font-size:13px; line-height:1.85; margin-bottom:0 }
+    .flow-wrap { margin-top:23px; padding:23px; border:1px solid #30495c; border-radius:14px; background:#0a1625b3 }
+    .flow-head { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:18px }
+    .flow-head span { color:#8ca4b8; font:11px ui-monospace,SFMono-Regular,monospace }
+    .flow-row { display:flex; align-items:center; gap:7px; flex-wrap:wrap }
+    .node { flex:1 1 95px; min-height:62px; padding:12px 9px; display:flex; flex-direction:column; justify-content:center; text-align:center; border:1px solid #365b67; border-radius:10px; background:#16313d }
+    .node b { font-size:12px; color:#e5fbf5 }.node small { font-size:10px; color:#9db9c4; margin-top:2px }
+    .arrow { color:var(--accent); font-size:18px; font-weight:700 }
+    .flow-note { margin:13px 0 0; color:#91a9b8; font-size:11px }
+    .contrib { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:23px }
+    .contrib-item { padding:17px; border:1px solid #2e4659; border-radius:12px; background:#132335 }
+    .contrib-item strong { display:block; color:#e7f4fb; font-size:13px; margin-bottom:5px }
+    .contrib-item p { margin:0; color:#a6b9ca; font-size:12px; line-height:1.75 }
+    .feature-footer { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:18px; margin-top:27px }
+    .tags { display:flex; gap:7px; flex-wrap:wrap }.tag { padding:5px 9px; border:1px solid #3a5063; border-radius:6px; color:#abc2d3; font-size:11px }
+    .links { display:flex; flex-wrap:wrap; gap:10px }
+    .text-link { color:#d7ecf5; font-size:12px; font-weight:750; white-space:nowrap }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px }
+    .card { display:flex; flex-direction:column; padding:24px; min-height:285px; background:var(--surface); border:1px solid var(--line); border-radius:16px; transition:border-color .2s,transform .2s }
+    .card:hover { border-color:#4e7e87; transform:translateY(-3px) }
+    .card-label { color:var(--accent); font-size:11px; letter-spacing:.08em; font-weight:750; margin-bottom:17px }
+    .card h3 { font-size:19px; line-height:1.4; letter-spacing:-.04em; margin-bottom:10px }
+    .card p { font-size:12.5px; color:var(--muted); margin-bottom:17px }
+    .card .card-bottom { margin-top:auto; color:#c4d5e4; font-size:11px }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:48px }
+    .timeline { border-left:1px solid #345066; margin-left:7px; padding-left:25px }
+    .timeline-item { position:relative; margin-bottom:28px }
+    .timeline-item::before { content:""; position:absolute; left:-31px; top:8px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px #5ee3ce17 }
+    .timeline-item h3 { font-size:15px; margin-bottom:3px }
+    .timeline-item .date { font-size:11px; color:var(--accent); margin-bottom:8px }
+    .timeline-item p { font-size:12.5px; color:var(--muted); margin-bottom:0 }
+    .skill-group { margin-bottom:21px }
+    .skill-group h3 { font-size:13px; margin-bottom:10px }
+    .cert { padding:15px 17px; border:1px solid var(--line); background:var(--surface); border-radius:10px; margin-top:10px; font-size:12px; color:#c6d5e4 }
+    .contact { margin:50px 0 65px; padding:44px; border:1px solid #3b6771; border-radius:20px; background:radial-gradient(ellipse at 100% 0,#194d55 0,transparent 56%),#122335 }
+    .contact h2 { margin:0 0 12px }.contact p { max-width:660px; color:#b4c5d4; font-size:14px; margin-bottom:22px }
+    footer { border-top:1px solid #223345; padding:26px 0 40px; color:#8094a7; font-size:11px }
+    .footer-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap }
+    @media (max-width:900px) { .hero { grid-template-columns:1fr; padding-top:72px; gap:43px }.hero-art { min-height:340px; max-width:620px }.feature-grid { grid-template-columns:1fr }.split { gap:28px }.cards { grid-template-columns:1fr 1fr } }
+    @media (max-width:650px) { .container { width:min(calc(100% - 32px),var(--max)) }.nav-inner { min-height:64px }.menu { display:block }.nav-links { display:none; position:absolute; top:64px; left:0; right:0; background:#0d1928; border-bottom:1px solid var(--line); padding:17px 20px 24px; flex-direction:column; align-items:flex-start; gap:17px }.nav-links.open { display:flex }.hero { padding:60px 0 65px }.hero-art { min-height:305px }.art-core { width:150px; height:150px }.art-core strong { font-size:53px }.orbit { font-size:9px }.orbit.one { top:85px;left:11px }.orbit.two { right:9px;top:110px }.orbit.three { bottom:45px;left:18px }.orbit.four { right:12px;bottom:45px }.section { padding:55px 0 }.section-head { display:block }.section-intro { margin-top:12px }.feature { padding:21px }.feature-top { display:block }.award { margin-top:18px }.flow-wrap { padding:15px }.flow-row { gap:5px }.node { flex-basis:80px }.arrow { font-size:13px }.contrib { grid-template-columns:1fr }.cards { grid-template-columns:1fr }.split { grid-template-columns:1fr }.contact { padding:27px; margin:35px 0 50px } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto } *,*::before,*::after { transition:none!important; animation:none!important } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="정승한 포트폴리오 홈"><span class="brand-mark">SJ</span> SEUNGHAN JUNG</a>
+      <button class="menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">☰ 메뉴</button>
+      <nav class="nav-links" id="nav-links" aria-label="주 메뉴">
+        <a href="#about">About</a><a href="#featured">Featured</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        <a class="nav-cv" href="resume.pdf" download="Seunghan_Jung_Resume.pdf">↓ Resume PDF</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container" id="top">
+      <section class="hero" id="about">
+        <div>
+          <span class="eyebrow">Computer Engineering · Pusan National University</span>
+          <h1>From data<br>to <span class="gradient">intelligence.</span></h1>
+          <p class="hero-desc">안녕하세요, <strong>정승한(Seunghan Jung)</strong>입니다.<br>데이터를 이해하고, AI 시스템으로 연결하고, 보안의 관점에서 기술을 바라봅니다. 현재 <strong>AI Research · RAG · Cybersecurity</strong>에 관심을 두고 연구와 개발을 이어가고 있습니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#featured">대표 프로젝트 보기 <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="resume.pdf" download="Seunghan_Jung_Resume.pdf">↓ Download CV</a>
+            <a class="btn" href="https://github.com/SeunghanJung-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+          <div class="hero-meta"><span class="pill">AI & Deep Learning</span><span class="pill">RAG Engineering</span><span class="pill">Network Security</span></div>
+        </div>
+        <div class="hero-art" role="img" aria-label="AI, RAG, Security, Research를 연결한 추상적인 기술 그래픽">
+          <div class="art-head"><span></span><span></span><span></span></div><div class="art-label">PORTFOLIO / 2026</div>
+          <div class="art-core"><strong>SJ</strong></div>
+          <span class="orbit one">AI / LLM</span><span class="orbit two">RAG</span><span class="orbit three">SECURITY</span><span class="orbit four">RESEARCH</span>
+          <div class="art-bottom"><span>BUILD · RESEARCH · SECURE</span><span>01 / ∞</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="kicker">01 / Featured project</p><h2>ForinK <span class="gradient">—</span> 정보 검색을 넘어, 답변으로</h2></div>
+          <p class="section-intro">AI Backend · Retrieval-Augmented Generation</p>
+        </div>
+        <article class="feature">
+          <div class="feature-top">
+            <div><div class="kicker">Foreign residents × Document-grounded AI</div><h3>ForinK<br>RAG 기반 외국인 정착 지원 AI 서비스</h3><p class="lead">한국에 정착하는 외국인이 비자·주거·행정 절차에 관한 정보를 쉽게 찾도록 돕는 서비스입니다. 관련 문서를 검색하고 그 문맥을 활용해 LLM이 답변을 생성하도록 설계했습니다.</p></div>
+            <span class="award">★ 제6회 PNU 창의융합 해커톤 장려상</span>
+          </div>
+          <div class="feature-grid">
+            <div class="problem"><div class="mini-title">The problem / 문제 정의</div><p>외국인 정착에 필요한 정보는 기관별 웹사이트와 여러 문서에 흩어져 있습니다. 원하는 정보를 찾기 어렵고, 언어적 장벽으로 인해 검색과 이해에 추가적인 비용이 발생합니다.</p></div>
+            <div class="solution"><div class="mini-title">The solution / 해결 접근</div><p>문서 내용을 추출·정제하고, 의미 단위로 분할해 벡터 데이터베이스에 저장합니다. 사용자 질문과 연관된 문서 청크를 검색한 뒤, 검색 문맥을 LLM에 전달해 답변을 생성하는 RAG 파이프라인을 구축했습니다.</p></div>
+          </div>
+          <div class="flow-wrap">
+            <div class="flow-head"><div class="mini-title" style="margin:0">System architecture</div><span>Document → Retrieval → Answer</span></div>
+            <div class="flow-row" aria-label="PDF 문서, 청킹 및 임베딩, Pinecone 벡터 DB, 유사 문서 검색, LLM 답변 생성">
+              <div class="node"><b>PDF 문서</b><small>Extract / Clean</small></div><span class="arrow" aria-hidden="true">→</span>
+              <div class="node"><b>청킹·임베딩</b><small>Metadata</small></div><span class="arrow" aria-hidden="true">→</span>
+              <div class="node"><b>Pinecone</b><small>Vector DB</small></div><span class="arrow" aria-hidden="true">→</span>
+              <div class="node"><b>문서 검색</b><small>Retrieval</small></div><span class="arrow" aria-hidden="true">→</span>
+              <div class="node"><b>LLM 답변</b><small>Generation</small></div>
+            </div>
+            <p class="flow-note">사용자 질문은 검색 단계에 입력되며, 검색된 문서가 LLM의 답변 문맥으로 활용됩니다. 도식은 핵심 데이터 흐름을 단순화한 것입니다.</p>
+          </div>
+          <div style="margin-top:27px" class="mini-title">My contributions / 담당 역할</div>
+          <div class="contrib">
+            <div class="contrib-item"><strong>01 · Document Processing</strong><p>PDF 텍스트 추출, 데이터 정제, 문서 청킹 및 메타데이터 구성</p></div>
+            <div class="contrib-item"><strong>02 · Vector Retrieval</strong><p>문서 임베딩과 벡터 DB 구성, 사용자 질의 관련 청크 검색</p></div>
+            <div class="contrib-item"><strong>03 · Answer Generation</strong><p>검색 문맥을 활용한 LLM 답변 생성 파이프라인 구축</p></div>
+          </div>
+          <div class="feature-footer">
+            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Pinecone</span><span class="tag">RAG</span><span class="tag">LLM</span></div>
+            <div class="links"><a class="text-link" href="https://github.com/For-In-K/forink-ai" target="_blank" rel="noopener noreferrer">Source code ↗</a><a class="text-link" href="https://github.com/For-In-K/forink-front" target="_blank" rel="noopener noreferrer">Frontend ↗</a><a class="text-link" href="https://forink.redzzzi.com/" target="_blank" rel="noopener noreferrer" title="외부 데모의 운영 상태는 변경될 수 있습니다">Project demo ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head"><div><p class="kicker">02 / Selected work</p><h2>Projects & Research</h2></div><p class="section-intro">연구에서 모델을 설계하고, 팀 프로젝트에서 실제 서비스를 구현했습니다.</p></div>
+        <div class="cards">
+          <article class="card"><div class="card-label">RESEARCH · 2025–2026</div><h3>VAE-pretrained GNN–Transformer</h3><p>상수도 네트워크의 시공간 예측을 위해 VAE 사전학습, Transformer Encoder–Decoder, GNN을 결합한 모델을 설계·평가했습니다.</p><div class="card-bottom">Non-VAE baseline 대비 테스트 손실 약 17% 감소</div></article>
+          <article class="card"><div class="card-label">MOBILE APP · HACKATHON</div><h3>서로서가<br>독서 공유 앱</h3><p>React Native·Expo 기반 도서 공유 앱 개발에 참여했습니다. Firebase 인증, Google OAuth, 인증 상태 관리 및 라우팅을 담당했습니다.</p><div class="card-bottom">제7회 PNU AI 해커톤 장려상 · <a class="text-link" href="https://github.com/PNU-2026-AI-Hackathon/pnuai-a-08" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></article>
+          <article class="card"><div class="card-label">DATA ANALYTICS · FINANCE</div><h3>BNK 금융 고객 데이터 분석</h3><p>약 200만 건의 고객 데이터를 전처리하고, 파생변수·XGBoost·K-Means를 활용해 금융 거래 특성과 디지털 이용 행태를 분석했습니다.</p><div class="card-bottom">Customer Segmentation · Feature Engineering</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head"><div><p class="kicker">03 / Background</p><h2>Experience & Skills</h2></div><p class="section-intro">연구와 개발, 그리고 실제 네트워크 운영 경험을 함께 쌓았습니다.</p></div>
+        <div class="split">
+          <div>
+            <div class="timeline">
+              <div class="timeline-item"><h3>부산대학교 정보컴퓨터공학부</h3><div class="date">Computer Engineering · Undergraduate</div><p>컴퓨터공학전공 재학. 전체 평점 4.14/4.50, 전공 평점 4.17/4.50.</p></div>
+              <div class="timeline-item"><h3>Data Science Laboratory</h3><div class="date">Undergraduate Research Assistant · 2025.03–2026.01</div><p>시계열 전처리, 딥러닝 모델 설계, 실험 및 성능 평가 연구에 참여했습니다.</p></div>
+              <div class="timeline-item"><h3>대한민국 공군</h3><div class="date">Network Systems Administrator · 2023.04–2025.01</div><p>네트워크체계관리병으로 서버·네트워크·망분리 시스템 운영 및 유지보수를 수행했습니다.</p></div>
+            </div>
+          </div>
+          <div>
+            <div class="skill-group"><h3>Programming & Engineering</h3><div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">SQL</span><span class="tag">TypeScript</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">FastAPI</span></div></div>
+            <div class="skill-group"><h3>AI & Data</h3><div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformer</span><span class="tag">GNN</span><span class="tag">VAE</span><span class="tag">RAG</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span></div></div>
+            <div class="skill-group"><h3>Application</h3><div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Firebase</span></div></div>
+            <div class="skill-group"><h3>Certifications</h3><div class="cert">정보보안산업기사 · 취득</div><div class="cert">정보보안기사 · 필기시험 합격</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="contact" id="contact">
+        <p class="kicker">04 / Get in touch</p><h2>Build with curiosity.</h2>
+        <p>AI 연구와 개발, 사이버보안의 접점에 관심이 있습니다. 프로젝트와 연구에 대한 이야기를 나누고 싶다면 편하게 연락해 주세요.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="mailto:sunghan1105@gmail.com">이메일 보내기 ↗</a><a class="btn" href="https://github.com/SeunghanJung-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn" href="resume.pdf" download="Seunghan_Jung_Resume.pdf">↓ Resume PDF</a></div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="container footer-inner"><span>© 2026 Seunghan Jung. Built for GitHub Pages.</span><span>AI Research · RAG · Cybersecurity</span></div></footer>
+  <script>
+    const menu = document.querySelector('.menu');
+    const nav = document.querySelector('.nav-links');
+    menu.addEventListener('click', function () {
+      const opened = nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(opened));
+      menu.setAttribute('aria-label', opened ? '메뉴 닫기' : '메뉴 열기');
+    });
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-label', '메뉴 열기');
+      });
+    });
+  </script>
+</body>
+</html>
